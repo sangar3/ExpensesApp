@@ -27,7 +27,7 @@ class MyHomePage extends StatelessWidget {
     Transaction
     (
       id: 't1', 
-      title: "ethereum", 
+      title: "Ethereum", 
       amount:50.99, 
       date:DateTime.now() 
     )
@@ -89,7 +89,7 @@ class MyHomePage extends StatelessWidget {
                         padding:EdgeInsets.all(10) ,
                         child: Text
                         (
-                          tx.amount.toString(),
+                          '\$${tx.amount}', //string interpolation
                           style: TextStyle
                           (
                             fontWeight: FontWeight.bold,
