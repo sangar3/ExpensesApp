@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';  //for @required
-class Transaction
+class Transaction //Object
 {
   final String id;
   final String title;
