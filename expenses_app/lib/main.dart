@@ -1,8 +1,8 @@
 import 'package:expenses_app/constants.dart';
-
+import'package:intl/intl.dart';
 import './transaction.dart';
 import 'package:flutter/material.dart';
-import './transaction.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -43,6 +43,8 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column
         (
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
         
           children: <Widget>
           [
@@ -103,7 +105,7 @@ class MyHomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text
+                          Text //TITLE
                           (
                             tx.title, 
                             style: TextStyle
@@ -113,9 +115,10 @@ class MyHomePage extends StatelessWidget {
                               color: kPrimaryColor2,
                             ),
                           ),
-                          Text
+                          
+                          Text //DATE
                           (
-                            tx.date.toString(),
+                            DateFormat.yMd().add_jm().format(tx.date),
                             style: TextStyle
                             (
                               color: kPrimaryColor2,
