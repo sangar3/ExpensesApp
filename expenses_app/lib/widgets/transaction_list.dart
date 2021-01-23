@@ -13,10 +13,9 @@ class TransactionList extends StatelessWidget
     return  Container
     (
       height: 300,
-      child: SingleChildScrollView(
-        child: Column
+       child:ListView.builder
         (
-          children: transactions.map((tx)  
+          itemBuilder: (ctx,index) 
           {
             return Card //outputs transactions title
             (
@@ -43,7 +42,7 @@ class TransactionList extends StatelessWidget
                     padding:EdgeInsets.all(10) ,
                     child: Text
                     (
-                      '\$${tx.amount}', //string interpolation
+                      '\$${transactions[index].amount}', //string interpolation
                       style: TextStyle
                       (
                         fontWeight: FontWeight.bold,
@@ -59,7 +58,7 @@ class TransactionList extends StatelessWidget
                     [
                       Text //TITLE
                       (
-                        tx.title, 
+                        transactions[index].title, 
                         style: TextStyle
                         (
                           fontSize: 16,
@@ -70,7 +69,7 @@ class TransactionList extends StatelessWidget
                       
                       Text //DATE
                       (
-                        DateFormat.yMMMd().format(tx.date),
+                        DateFormat.yMMMd().format(transactions[index].date),
                         style: TextStyle
                         (
                           color: kPrimaryColor2,
@@ -82,9 +81,10 @@ class TransactionList extends StatelessWidget
                 ],
               ),
             );
-          }).toList()
+          },
+          itemCount:transactions.length,
+          
         ),
-      ),
     );
   }
 }
