@@ -42,7 +42,7 @@ class TransactionList extends StatelessWidget
                     padding:EdgeInsets.all(10) ,
                     child: Text
                     (
-                      '\$${transactions[index].amount}', //string interpolation
+                      '\$${transactions[index].amount.toStringAsFixed(2)}', //string interpolation
                       style: TextStyle
                       (
                         fontWeight: FontWeight.bold,
