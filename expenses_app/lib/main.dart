@@ -1,9 +1,8 @@
-import './widgets/user_transaction.dart';
-
+import './widgets/new_transaction.dart';
+import './widgets/transaction_list.dart';
 import './constants.dart';
-
 import 'package:flutter/material.dart';
-
+import './models/transaction.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,10 +16,59 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
  
- 
-  
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final List<Transaction> _userTransactions =[
+    Transaction
+    (
+      id: 't1', 
+      title: "Bitcoin", 
+      amount:50.99, 
+      date:DateTime.now() 
+    ),
+    Transaction
+    (
+      id: 't1', 
+      title: "Ethereum", 
+      amount:50.99, 
+      date:DateTime.now() 
+    )
+  ]; 
+
+  void _addNewTransaction(String txtitle, double txamount)
+  {
+    final newTx = Transaction
+    (
+      title: txtitle, 
+      amount: txamount, 
+      date: DateTime.now(),
+      id: DateTime.now().toString()
+    );
+    
+      setState(() {
+      _userTransactions.add(newTx);
+    });
+  }
+
+
+  void _startAddNewTransaction(BuildContext ctx)
+  {
+    showModalBottomSheet(context: ctx, 
+    builder: (_) 
+    {
+      return GestureDetector
+      (
+        onTap: (){},
+        child:NewTransaction(_addNewTransaction)
+      );
+    },);
+  }
+
   @override
   Widget build(BuildContext context) 
   {
@@ -33,7 +81,11 @@ class MyHomePage extends StatelessWidget {
         title: Text('SGExpenses'),
         actions: <Widget>
         [
-          IconButton(icon: Icon(Icons.add), onPressed: () {})
+          IconButton
+          (
+            icon: Icon(Icons.add), 
+            onPressed:  () => _startAddNewTransaction(context),
+          )
         ],
       ),
       body:  SingleChildScrollView
@@ -42,6 +94,8 @@ class MyHomePage extends StatelessWidget {
           (
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
+
+           
           
             children: <Widget>
             [
@@ -59,7 +113,7 @@ class MyHomePage extends StatelessWidget {
                   elevation: 5,
                 ),
               ),
-              UserTransactions()
+              TransactionList(_userTransactions),
             ],
           ),
       ),
@@ -67,7 +121,7 @@ class MyHomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton
       (
         child: Icon(Icons.add),
-        onPressed: () {} ,
+        onPressed:  () => _startAddNewTransaction(context),
       ) ,
     );
   }
