@@ -91,35 +91,35 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
+      
       body:  SingleChildScrollView
       (
-          child: Column
-          (
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: Column
+        (
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
 
-           
-          
-            children: <Widget>
-            [
-              Container
+          children: <Widget>
+          [
+            Container
+            (
+              width: double.infinity,
+              child: Card
               (
-                width: double.infinity,
-                child: Card
+                color: kPrimaryColor,
+                child: Container
                 (
-                  color: kPrimaryColor,
-                  child: Container
-                  (
-                    width: 100,
-                    child: Text("CHART!")
-                  ),
-                  elevation: 5,
+                  width: 100,
+                  child: Text("CHART!")
                 ),
+                elevation: 5,
               ),
-              TransactionList(_userTransactions),
-            ],
-          ),
+            ),
+            TransactionList(_userTransactions),
+          ],
+        ),
       ),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton
       (
