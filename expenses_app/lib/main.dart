@@ -1,3 +1,5 @@
+import 'package:flutter/gestures.dart';
+
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
 import './constants.dart';
@@ -64,7 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
       return GestureDetector
       (
         onTap: (){},
-        child:NewTransaction(_addNewTransaction)
+        child:NewTransaction(_addNewTransaction),
+        behavior: HitTestBehavior.opaque,
       );
     },);
   }
