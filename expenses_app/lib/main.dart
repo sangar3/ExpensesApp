@@ -1,4 +1,4 @@
-import 'package:flutter/gestures.dart';
+
 
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
@@ -12,7 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter App',
+      title: 'SGExpenses',
+      theme: ThemeData
+      (
+        primaryColor: kPrimaryColor, 
+        accentColor: kPrimaryColor2,
+      ),
       home: MyHomePage(),
     );
   }
@@ -91,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      
+
       body:  SingleChildScrollView
       (
         child: Column

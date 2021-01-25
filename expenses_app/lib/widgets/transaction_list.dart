@@ -34,7 +34,7 @@ class TransactionList extends StatelessWidget
                     (
                       border:Border.all
                       (
-                        color: kPrimaryColor,
+                        color: Theme.of(context).primaryColor,
                         width:2,
 
                       )
@@ -47,7 +47,7 @@ class TransactionList extends StatelessWidget
                       (
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: kPrimaryColor,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                   ),
@@ -63,7 +63,7 @@ class TransactionList extends StatelessWidget
                         (
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: kPrimaryColor2,
+                          color: Theme.of(context).accentColor,
                         ),
                       ),
                       
@@ -72,7 +72,7 @@ class TransactionList extends StatelessWidget
                         DateFormat.yMMMd().format(transactions[index].date),
                         style: TextStyle
                         (
-                          color: kPrimaryColor2,
+                          color: Colors.grey,
                         ),
                       ),
                     ]
