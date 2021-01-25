@@ -17,6 +17,26 @@ class MyApp extends StatelessWidget {
       (
         primaryColor: kPrimaryColor, 
         accentColor: kPrimaryColor2,
+        fontFamily: 'Montserrat',
+        textTheme: ThemeData.light().textTheme.copyWith
+        (
+          headline6: TextStyle
+          (
+            fontFamily: 'Montserrat',
+            fontWeight: FontWeight.bold,
+            fontSize: 17,
+          ),
+        ),
+        appBarTheme: AppBarTheme
+        (
+           textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(
+                  fontFamily: 'Orbitron',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+        )
       ),
       home: MyHomePage(),
     );
