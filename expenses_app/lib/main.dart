@@ -23,6 +23,13 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         textTheme: ThemeData.light().textTheme.copyWith
         (
+          
+          headline1: TextStyle
+          (
+            fontFamily: 'Montserrat',
+            
+            fontSize: 14,
+          ),
           headline6: TextStyle
           (
             fontFamily: 'Montserrat',
@@ -33,7 +40,8 @@ class MyApp extends StatelessWidget {
           (
             fontFamily: 'Montserrat',
             color: Colors.white
-          )
+          ),
+          
         ),
         appBarTheme: AppBarTheme
         (
