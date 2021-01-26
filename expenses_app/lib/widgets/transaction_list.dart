@@ -1,3 +1,4 @@
+import '../constants.dart';
 import 'package:expenses_app/models/transaction.dart';
 import 'package:flutter/material.dart';
 import '../models/transaction.dart';
@@ -41,68 +42,56 @@ class TransactionList extends StatelessWidget
         (
           itemBuilder: (ctx,index) 
           {
-            return Card //outputs transactions title
+            return Card
             (
-              child: Row
+              elevation: 5,
+              margin:EdgeInsets.symmetric
               (
-                children: <Widget>
-                [
-                  Container
+                vertical:8, 
+                horizontal:5,
+              ),
+              child: ListTile
+              (
+                leading: CircleAvatar
+                (
+                  backgroundColor:kPrimaryColor,
+                  radius: 30, 
+                  
+                  child: Padding
                   (
-                    margin:EdgeInsets.symmetric
+                    padding: EdgeInsets.all(6),
+                    child: FittedBox
                     (
-                      vertical:10, 
-                      horizontal:15,
-                    ),
-                    decoration: BoxDecoration
-                    (
-                      border:Border.all
+                      child: Text
                       (
-                        color: Theme.of(context).primaryColor,
-                        width:2,
-
-                      )
-                    ),
-                    padding:EdgeInsets.all(10) ,
-                    child: Text
-                    (
-                      '\$${transactions[index].amount.toStringAsFixed(2)}', //string interpolation
-                      style: TextStyle
-                      (
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Theme.of(context).primaryColor,
+                        '\$${transactions[index].amount}',
+                        style: TextStyle
+                        (
+                          color: Colors.white.withOpacity(1.0),
+                        ),
+                        
+                        
                       ),
                     ),
                   ),
-                  Column
+                ),
+                title: Text
+                (
+                  transactions[index].title,
+                  style: Theme.of(context).textTheme.headline6
+                ),
+                subtitle: Text
+                (
+                  DateFormat.yMMMd().format(transactions[index].date),
+                  style: TextStyle
                   (
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>
-                    [
-                      Text //TITLE
-                      (
-                        transactions[index].title, 
-                        style: Theme.of(context).textTheme.headline6
-                      ),
-                      
-                      Text //DATE
-                      (
-                        DateFormat.yMMMd().format(transactions[index].date),
-                        style: TextStyle
-                        (
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ]
-                
-                  )
-                ],
+                    color: Colors.grey,
+                  )   
+                ),
               ),
             );
           },
           itemCount:transactions.length,
-          
         ),
     );
   }
