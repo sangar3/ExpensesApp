@@ -65,24 +65,11 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions =[
-    // Transaction
-    // (
-    //   id: 't1', 
-    //   title: "Bitcoin", 
-    //   amount:50.99, 
-    //   date:DateTime.now() 
-    // ),
-    // Transaction
-    // (
-    //   id: 't1', 
-    //   title: "Ethereum", 
-    //   amount:50.99, 
-    //   date:DateTime.now() 
-    // )
-  ]; 
+class _MyHomePageState extends State<MyHomePage> 
+{
 
+  final List<Transaction> _userTransactions = []; 
+    
   List<Transaction> get _recentTransactions
   {
     return _userTransactions.where((tx) 
@@ -127,6 +114,13 @@ class _MyHomePageState extends State<MyHomePage> {
     },);
   }
 
+  void _deleteTransaction(String id)
+  {
+    setState(() {
+      _userTransactions.removeWhere((tx) => tx.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) 
   {
@@ -157,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>
           [
             Chart(_recentTransactions),
-            TransactionList(_userTransactions),
+            TransactionList(_userTransactions,_deleteTransaction),
           ],
         ),
       ),
