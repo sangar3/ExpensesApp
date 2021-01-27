@@ -83,7 +83,7 @@ class TransactionList extends StatelessWidget
                 ),
                 subtitle: Text
                 (
-                  DateFormat.yMMMd().format(transactions[index].date),
+                  DateFormat.yMMMMEEEEd().format(transactions[index].date),
                   style: TextStyle
                   (
                     color: Colors.grey,
